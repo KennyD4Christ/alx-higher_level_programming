@@ -4,6 +4,7 @@ Define classes for a singly-linked list.
 
 """
 
+
 class Node:
     """
     Node class for a singly linked list.
