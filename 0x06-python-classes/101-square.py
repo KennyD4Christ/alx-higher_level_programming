@@ -4,6 +4,7 @@
 Define a class Square.
 """
 
+
 class Square:
     """
     Square class with size and position attributes.
