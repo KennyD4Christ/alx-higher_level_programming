@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This is the MyList module.
+Defines an inherited list class MyList..
 """
 
 
