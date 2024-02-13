@@ -66,8 +66,8 @@ class Square(Rectangle):
             for arg_name, value in zip(arg_names, args):
                 if arg_name == 'size':
                     value = int(value)
-                    setattr(self, 'width', value)
-                    setattr(self, 'height', value)
+                    self.width = value
+                    self.height = value
                 elif arg_name in ['width', 'height']:
                     value = int(value)
                     setattr(self, arg_name, value)
@@ -77,8 +77,8 @@ class Square(Rectangle):
             for key, value in kwargs.items():
                 if key == 'size':
                     value = int(value)
-                    setattr(self, 'width', value)
-                    setattr(self, 'height', value)
+                    self.width = value
+                    self.height = value
                 else:
                     setattr(self, key, value)
 

@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """Defines unittests for base.py.
 
 Unittest classes:
@@ -27,7 +28,7 @@ class TestBase_instantiation(unittest.TestCase):
 
     def test_three_bases(self):
         b1 = Base()
-        # b2 = Base() This is not used
+        b2 = Base()
         b3 = Base()
         self.assertEqual(b1.id, b3.id - 2)
 

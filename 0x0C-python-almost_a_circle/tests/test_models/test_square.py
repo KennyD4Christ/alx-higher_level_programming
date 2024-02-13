@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """Unit tests for Square class"""
 
 import unittest
@@ -69,13 +70,12 @@ class TestSquare(unittest.TestCase):
 
     def test_update_mixed(self):
         """Test update method with mixed arguments."""
-        r = Rectangle(1, 2, 3, 4, 5)
-        r.update(10, width=20, height=30, x=40, y=50)
-        self.assertEqual(r.id, 10)
-        self.assertEqual(r.width, 20)
-        self.assertEqual(r.height, 30)
-        self.assertEqual(r.x, 40)
-        self.assertEqual(r.y, 50)
+        s = Square(1, 2, 3, 4)
+        s.update(10, size=20, x=30, y=40)
+        self.assertEqual(s.id, 10)
+        self.assertEqual(s.size, 20)
+        self.assertEqual(s.x, 30)
+        self.assertEqual(s.y, 40)
 
     def test_to_dictionary(self):
         """Test to_dictionary method."""
