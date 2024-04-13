@@ -9,7 +9,7 @@ from model_state import Base
 
 class City(Base):
     """
-    City class inherits from Base and represents the cities table.
+    Class representing a city.
     """
 
     __tablename__ = 'cities'
