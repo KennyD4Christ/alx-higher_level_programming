@@ -23,14 +23,20 @@ def filter_states(username, password, db_name):
     cursor = db.cursor()
 
     # Execute SQL query to select states starting with 'N'
-    cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id")
+    cursor.execute(
+        "SELECT id, name FROM states WHERE name LIKE 'N%' ",
+        "ORDER BY id ASC"
+    )
 
     # Fetch all rows
     rows = cursor.fetchall()
 
     # Display results
+    print("ID\tNAME")
+    print("-" * 10)  # Separator line
     for row in rows:
-        print(row)
+        state_id, state_name = row
+        print(f"{state_id}\t{state_name}")
 
     # Close cursor and database connection
     cursor.close()
