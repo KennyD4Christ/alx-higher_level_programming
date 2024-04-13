@@ -12,24 +12,42 @@ from relationship_city import City
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
-        print("Usage: {} username password database".format(sys.argv[0]))
-        sys.exit(1)
+    # Get MySQL username, password, and database name from command-line
+    # arguments
+    mysql_username = sys.argv[1]
+    mysql_password = sys.argv[2]
+    db_name = sys.argv[3]
 
-    username, password, database = sys.argv[1:]
+    # Create an engine to establish a connection to the database
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
+                           .format(mysql_username, mysql_password, db_name))
 
-    engine_string = 'mysql+mysqldb://' + '{}:{}@localhost:3306/{}'.format(
-        username, password, database)
-    engine = create_engine(engine_string)
+    # Create all tables in the engine
     Base.metadata.create_all(engine)
 
+    # Create a configured "Session" class
     Session = sessionmaker(bind=engine)
+
+    # Create a Session
     session = Session()
 
+    # Create a new State object
     california = State(name="California")
-    san_francisco = City(name="San Francisco", state=california)
+
+    # Add the State object to the session
     session.add(california)
-    session.add(san_francisco)
+
+    # Commit the transaction
     session.commit()
 
+    # Create a new City object
+    san_francisco = City(name="San Francisco", state=california)
+
+    # Add the City object to the session
+    session.add(san_francisco)
+
+    # Commit the transaction
+    session.commit()
+
+    # Close the session
     session.close()
