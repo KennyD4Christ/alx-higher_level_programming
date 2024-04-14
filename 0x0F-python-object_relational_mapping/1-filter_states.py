@@ -24,15 +24,21 @@ if __name__ == "__main__":
     cursor = db.cursor()
 
     # Execute the query
-    cursor.execute("SELECT id, name FROM states WHERE name LIKE 'N%' "
-                   "GROUP BY id ORDER BY id ASC")
+    cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' "
+                   "ORDER BY id")
 
     # Fetch all the rows
     rows = cursor.fetchall()
 
-    # Display results
-    for row in rows:
-        print(row)
+    # Create a set to store unique names (ignoring case)
+    unique_names = set(row[1].lower() for row in rows)
+
+    # Print results with id and name
+    for name in unique_names:
+        for row in rows:
+            if row[1].lower() == name:  # Match names (case-insensitive)
+                print(f"({row[0]}, '{row[1]}')")  # Print id and name
+                break  # Exit inner loop once a match is found
 
     # Close cursor and database connection
     cursor.close()
