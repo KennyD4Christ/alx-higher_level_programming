@@ -25,7 +25,7 @@ if __name__ == "__main__":
 
     # Execute the query
     cursor.execute("SELECT id, name FROM states WHERE name LIKE 'N%' "
-                   "GROUP BY id ORDER BY id ASC LIMIT 2")
+                   "GROUP BY id ORDER BY id ASC")
 
     # Fetch all the rows
     rows = cursor.fetchall()
