@@ -30,15 +30,9 @@ if __name__ == "__main__":
     # Fetch all the rows
     rows = cursor.fetchall()
 
-    # Create a set to store unique names (ignoring case)
-    unique_names = set(row[1].lower() for row in rows)
-
-    # Print results with id and name
-    for name in unique_names:
-        for row in rows:
-            if row[1].lower() == name:  # Match names (case-insensitive)
-                print(f"({row[0]}, '{row[1]}')")  # Print id and name
-                break  # Exit inner loop once a match is found
+    # Display results
+    for row in rows:
+        print(row)
 
     # Close cursor and database connection
     cursor.close()
