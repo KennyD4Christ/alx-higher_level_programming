@@ -24,7 +24,8 @@ if __name__ == "__main__":
     cursor = db.cursor()
 
     # Execute the query
-    cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+    cursor.execute("SELECT id, name FROM states WHERE name LIKE 'N%' "
+                   "GROUP BY id ORDER BY id ASC LIMIT 2")
 
     # Fetch all the rows
     rows = cursor.fetchall()
