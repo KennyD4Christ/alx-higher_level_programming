@@ -1,2 +1,2 @@
 The algorithm has a complexity of
-O(log(n)).
+O(log n)
