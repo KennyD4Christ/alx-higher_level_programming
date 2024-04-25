@@ -1,0 +1,2 @@
+O(log(n))
+This algorithm utilizes a binary search approach to efficiently locate a peak element in an unsorted list of integers.
