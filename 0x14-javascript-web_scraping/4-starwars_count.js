@@ -17,7 +17,7 @@ request(process.argv[2], function (error, response, body) {
         ? count + 1
 	// Otherwise, keep the count unchanged.
 	: count;
-      // The 'reduce()' method starts with an initial value of 0 ('0' at the end)
+    // The 'reduce()' method starts with an initial value of 0 ('0' at the end)
     }, 0));
   }
 });
