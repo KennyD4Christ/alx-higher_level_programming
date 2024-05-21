@@ -2,13 +2,22 @@
 
 const request = require('request');
 const movieId = process.argv[2];
-const url = `https://swapi-api.alx-tools.com/api/films/${movieId}`;
 
-request(url, (error, response, body) => {
+request(apiUrl, (error, response, body) => {
   if (error) {
     console.error('Error:', error);
     return;
   }
+
   const data = JSON.parse(body);
-  console.log(data.title);
+  let wedgeCount = 0;
+  const wedgeCharacterUrl = 'https://swapi-api.alx-tools.com/api/people/18/';
+
+  data.results.forEach(film => {
+    if (film.characters.includes(wedgeCharacterUrl)) {
+      wedgeCount++;
+    }
+  });
+
+  console.log(wedgeCount);
 });
