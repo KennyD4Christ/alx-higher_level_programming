@@ -17,9 +17,9 @@ request(url, (error, response, body) => {
       request(url, (err, res, body) => {
         if (err) {
           reject(err);
-	} else {
-	  resolve(JSON.parse(body).name);
-	}
+        } else {
+          resolve(JSON.parse(body).name);
+        }
       });
     });
   };
@@ -28,7 +28,7 @@ request(url, (error, response, body) => {
     for (const characterUrl of characterUrls) {
       try {
         const characterName = await fetchCharacter(characterUrl);
-	console.log(characterName);
+        console.log(characterName);
       } catch (err) {
         console.error('Error:', err);
       }
