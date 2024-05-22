@@ -16,7 +16,7 @@ request(url, (error, response, body) => {
     request(characterUrl, (charError, charResponse, charBody) => {
       if (charError) {
         console.error('Error:', charError);
-	return;
+        return;
       }
       const character = JSON.parse(charBody);
       console.log(character.name);
